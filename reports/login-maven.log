@@ -1,0 +1,146 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.demoblaze:demoblaze-api-karate >-----------------
+[INFO] Building demoblaze-api-karate 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Loaded 23991 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] Loaded 74 auto-discovered prefixes for remote repository apache.snapshots (prefixes-apache.snapshots.txt)
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ demoblaze-api-karate ---
+[INFO] Deleting C:\Users\acvsy\Documents\Alex\Pruebas sofka\demoblaze-api-karate\target
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ demoblaze-api-karate ---
+[INFO] skip non existing resourceDirectory C:\Users\acvsy\Documents\Alex\Pruebas sofka\demoblaze-api-karate\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ demoblaze-api-karate ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ demoblaze-api-karate ---
+[INFO] Copying 6 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ demoblaze-api-karate ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug release 17] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.3:test (default-test) @ demoblaze-api-karate ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.demoblaze.api.ApiTest
+21:54:52.300 INFO  com.intuit.karate.Runner - using system property 'karate.options': --tags @login
+21:54:53.339 DEBUG com.intuit.karate.Suite - [config] classpath:karate-config.js
+21:54:53.347 DEBUG com.intuit.karate.Suite - waiting for 2 features to complete
+21:54:55.942 DEBUG com.intuit.karate - request:
+1 > POST https://api.demoblaze.com/signup
+1 > Content-Type: application/json; charset=UTF-8
+1 > Content-Length: 78
+1 > Host: api.demoblaze.com
+1 > Connection: Keep-Alive
+1 > User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 > Accept-Encoding: gzip,deflate
+{"username":"alexqa_972b162c-9d0d-45a3-90f4-75eb9e730410","password":"123456"}
+
+21:54:56.641 DEBUG com.intuit.karate - response time in milliseconds: 691
+1 < 200
+1 < content-type: application/json
+1 < x-cloud-trace-context: 24d5fd912d3efaf3bf380d515067ceca
+1 < date: Mon, 05 Oct 2026 02:54:56 GMT
+1 < server: Google Frontend
+1 < Content-Length: 3
+""
+
+
+21:54:56.698 DEBUG com.intuit.karate - request:
+1 > POST https://api.demoblaze.com/login
+1 > Content-Type: application/json; charset=UTF-8
+1 > Content-Length: 78
+1 > Host: api.demoblaze.com
+1 > Connection: Keep-Alive
+1 > User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 > Accept-Encoding: gzip,deflate
+{"username":"alexqa_972b162c-9d0d-45a3-90f4-75eb9e730410","password":"123456"}
+
+21:54:57.641 DEBUG com.intuit.karate - response time in milliseconds: 940
+1 < 200
+1 < content-type: application/json
+1 < vary: Accept-Encoding
+1 < x-cloud-trace-context: f543f334452c429168bf9602fca3ee83
+1 < date: Mon, 05 Oct 2026 02:54:57 GMT
+1 < server: Google Frontend
+1 < Transfer-Encoding: chunked
+"Auth_token: YWxleHFhXzk3MmIxNjJjLTlkMGQtNDVhMy05MGY0LTc1ZWI5ZTczMDQxMDE3OTE3Njg="
+
+
+21:54:57.713 DEBUG com.intuit.karate - request:
+1 > POST https://api.demoblaze.com/signup
+1 > Content-Type: application/json; charset=UTF-8
+1 > Content-Length: 78
+1 > Host: api.demoblaze.com
+1 > Connection: Keep-Alive
+1 > User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 > Accept-Encoding: gzip,deflate
+{"username":"alexqa_0b7c1191-3be3-4550-aad3-ab241456cbd9","password":"123456"}
+
+21:54:58.041 DEBUG com.intuit.karate - response time in milliseconds: 323
+1 < 200
+1 < content-type: application/json
+1 < x-cloud-trace-context: b1164c9bc00f9f6003e168524aa0e876
+1 < date: Mon, 05 Oct 2026 02:54:57 GMT
+1 < server: Google Frontend
+1 < Content-Length: 3
+""
+
+
+21:54:58.054 DEBUG com.intuit.karate - request:
+1 > POST https://api.demoblaze.com/login
+1 > Content-Type: application/json; charset=UTF-8
+1 > Content-Length: 82
+1 > Host: api.demoblaze.com
+1 > Connection: Keep-Alive
+1 > User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.20.1)
+1 > Accept-Encoding: gzip,deflate
+{"username":"alexqa_0b7c1191-3be3-4550-aad3-ab241456cbd9","password":"incorrecto"}
+
+21:54:58.548 DEBUG com.intuit.karate - response time in milliseconds: 490
+1 < 200
+1 < content-type: application/json
+1 < vary: Accept-Encoding
+1 < x-cloud-trace-context: aaa3788bb5fc1ebc2bcf848c10d3e487
+1 < date: Mon, 05 Oct 2026 02:54:58 GMT
+1 < server: Google Frontend
+1 < Transfer-Encoding: chunked
+{"errorMessage":"Wrong password."}
+
+
+---------------------------------------------------------
+feature: classpath:features/auth/login.feature
+scenarios:  2 | passed:  2 | failed:  0 | time: 3,3005
+---------------------------------------------------------
+
+21:55:00.397 INFO  com.intuit.karate.Suite - <<pass>> feature 1 of 2 (1 remaining) classpath:features/auth/login.feature
+Karate version: 1.5.2
+======================================================
+elapsed:   8,11 | threads:    1 | thread time: 3,30 
+features:     1 | skipped:    1 | efficiency: 0,41
+scenarios:    2 | passed:     2 | failed: 0
+======================================================
+
+HTML report: (paste into browser to view) | Karate version: 1.5.2
+file:///C:/Users/acvsy/Documents/Alex/Pruebas%20sofka/demoblaze-api-karate/target/karate-reports/karate-summary.html
+===================================================================
+
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.784 s -- in com.demoblaze.api.ApiTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  16.952 s
+[INFO] Finished at: 2026-10-04T21:55:00-05:00
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,13 @@
+Validación real contra DemoBlaze
+Java 17 / Karate 1.5.2 / JUnit 5
+
+mvn clean test -Dkarate.options=--tags @signup => BUILD SUCCESS; 2 escenarios aprobados, 0 fallos; 2026-10-04 09:54:41 p. m. (America/Bogota)
+mvn clean test -Dkarate.options=--tags @login => BUILD SUCCESS; 2 escenarios aprobados, 0 fallos; 2026-10-04 09:55:00 p. m. (America/Bogota)
+mvn clean test -Dkarate.options=--tags @negative => BUILD SUCCESS; 2 escenarios aprobados, 0 fallos; 2026-10-04 09:55:21 p. m. (America/Bogota)
+mvn clean test -Dkarate.options=--tags @smoke => BUILD SUCCESS; 2 escenarios aprobados, 0 fallos; 2026-10-04 09:55:39 p. m. (America/Bogota)
+mvn clean test -Dkarate.options=--tags @positive => BUILD SUCCESS; 2 escenarios aprobados, 0 fallos; 2026-10-04 09:55:57 p. m. (America/Bogota)
+mvn clean test -Dkarate.options=--tags @api => BUILD SUCCESS; 4 escenarios aprobados, 0 fallos; 2026-10-04 09:56:16 p. m. (America/Bogota)
+mvn clean test => BUILD SUCCESS; 4 escenarios aprobados, 0 fallos; 2026-10-04 09:56:35 p. m. (America/Bogota)
+
+Reporte completo: completa-html/karate-summary.html
+Logs Maven y resumen JSON por cada ejecución.

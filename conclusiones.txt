@@ -1,0 +1,39 @@
+--------------------------------------------------
+HALLAZGOS
+--------------------------------------------------
+
+Durante la ejecución de las pruebas encontré que DemoBlaze devuelve HTTP 200 tanto en respuestas exitosas como en algunos errores funcionales, por ejemplo cuando se intenta registrar un usuario ya existente o cuando se envía una contraseña incorrecta.
+Por esta razón, no fue suficiente validar únicamente el código HTTP. Fue necesario revisar también el contenido de la respuesta para determinar si cada caso había sido exitoso o no.
+En el servicio de signup observé los siguientes comportamientos:
+
+- Cuando se registra un usuario nuevo, el servicio responde HTTP 200 y retorna una respuesta vacía.
+- Cuando se intenta registrar nuevamente el mismo usuario, responde HTTP 200 y retorna:
+
+"This user already exist."
+
+En el servicio de login se encontró lo siguiente:
+
+- Cuando el usuario y la contraseña son correctos, el servicio responde HTTP 200 y retorna un Auth_token.
+- El valor del token cambia en cada autenticación, por lo que la validación se realiza sobre la presencia del texto "Auth_token:" y no sobre el valor completo.
+- Cuando se utiliza un usuario válido con una contraseña incorrecta, el servicio también responde HTTP 200 y retorna:
+
+"Wrong password."
+
+Otro punto importante fue el manejo de los datos de prueba. Como DemoBlaze conserva los usuarios registrados, utilizar un username fijo haría que el escenario de registro exitoso dejara de funcionar después de la primera ejecución.
+Por esta razón, cada escenario genera un usuario único y prepara sus propios datos antes de ejecutar la validación correspondiente. Esto permite repetir las pruebas sin depender de usuarios creados previamente ni del orden de ejecución.
+
+--------------------------------------------------
+CONCLUSIONES
+--------------------------------------------------
+
+Con las pruebas realizadas pude validar los cuatro comportamientos solicitados para los servicios de signup y login.
+La principal conclusión es que en esta API el código HTTP no es suficiente para determinar el resultado funcional de una petición, ya que tanto los casos exitosos como algunos errores retornan HTTP 200.
+Por este motivo, las assertions se enfocaron tanto en el status como en el contenido de la respuesta.
+También se comprobó que la generación dinámica de usuarios permite mantener los escenarios independientes y repetibles, evitando depender de información creada en ejecuciones anteriores.
+La reutilización del flujo de creación de usuarios permitió preparar los datos necesarios para cada escenario sin duplicar innecesariamente la lógica.
+Durante la ejecución final no se identificaron defectos funcionales en los cuatro casos solicitados:
+- Registro de un usuario nuevo.
+- Intento de registro de un usuario existente.
+- Login con credenciales correctas.
+- Login con contraseña incorrecta.
+Las pruebas finalizaron correctamente y los resultados obtenidos coincidieron con el comportamiento esperado de los servicios evaluados.
